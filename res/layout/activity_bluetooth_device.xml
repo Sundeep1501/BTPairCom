@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/device_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/device_pair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pair" />
+
+    <Button
+        android:id="@+id/device_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect" />
+
+    <TextView
+        android:id="@+id/device_serial_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Serial uuids :" />
+
+    <EditText
+        android:id="@+id/device_command"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Command in hex" />
+
+    <Button
+        android:id="@+id/device_send_command"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send" />
+
+    <ListView
+        android:id="@+id/deviceCommandHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
