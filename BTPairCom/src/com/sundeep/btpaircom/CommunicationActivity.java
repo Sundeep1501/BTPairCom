@@ -178,20 +178,23 @@ public class CommunicationActivity extends Activity {
 		public void onReceive(Context context, Intent intent) {
 			device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 			String pairedStatus;
-			if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
+			if (device.getBondState() == BluetoothDevice.BOND_BONDING) {
+				pairedStatus = "Pairing";
+			} else if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
 				pairButton.setVisibility(View.GONE);
 				connectButton.setVisibility(View.VISIBLE);
 				pairedStatus = "Paired Successfully";
 				updateDeviceInfo();
 				fetchUuidsSdp();
+				unregisterReceiver(bondStateReceiver);
 			} else {
 				pairButton.setVisibility(View.VISIBLE);
 				connectButton.setVisibility(View.GONE);
 				pairedStatus = "Paired Failed";
+				unregisterReceiver(bondStateReceiver);
 			}
 			Toast.makeText(CommunicationActivity.this, pairedStatus,
 					Toast.LENGTH_SHORT).show();
-			unregisterReceiver(bondStateReceiver);
 		}
 	};
 
